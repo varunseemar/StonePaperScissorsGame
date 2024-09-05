@@ -1,0 +1,83 @@
+body{
+    background-color: #8CC461;
+}
+
+.score{
+    display: flex;
+    height: 20vh;
+    width: 60vw;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    margin-left: 18.5vw;
+    margin-top: 8vh;
+}
+
+.textscore{
+    font-family: Roboto;
+    font-size: 35px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: white;
+    font-weight: 500;
+}
+
+.computerscore{
+    margin-left: 400px;
+    margin-top: 18px;
+    border-radius: 10px;
+}
+
+.myscore{
+    margin-left: 50px;
+    margin-top: 18px;
+    border-radius: 10px;
+}
+
+.ruleslist{
+    color: white;
+    margin-right: 12px;
+    margin-left: 0px;
+    font-family: Roboto;
+    font-size: 13.5px;
+    list-style-type: square;
+    margin-top: 0px;
+}
+
+.ruleslist > li::marker{
+    color: #FFD600;
+    font-size: 18px;
+}
+
+.pickedgame >p{
+    color: white;
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.userwongame >p{
+    color: white;
+    font-family: Roboto;
+    font-size: 27px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.computerwongame >p{
+    color: white;
+    font-family: Roboto;
+    font-size: 27px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.tiegame >p{
+    color: white;
+    font-family: Roboto;
+    font-size: 27px;
+    font-weight: 500;
+    text-align: center;
+    
+}

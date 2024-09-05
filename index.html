@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="main">
+        <div class="score" style="">
+            <div class="textscore">
+                <p style="margin-top: 15px;">ROCK</br>PAPER</br>SCISSORS</p>
+            </div>
+            <div class="computerscore" style="height: 120px;width: 120px;background-color: white;">
+                <p style="text-align: center;color: #656565;font-family: Roboto;font-size: 20px;margin-top: 10px;margin-bottom: 0px;">Computer</br>Score</p>
+                <p id="computerscorevalue" style="font-size: 50px;margin-top: 0px;font-family: Roboto;color:#252525;text-align: center;font-weight: 500;">0</p>
+            </div>
+            <div class="myscore"style="height: 120px;width: 120px;background-color: white;">
+                <p style="text-align: center;color: #656565;font-family: Roboto;font-size: 20px;margin-top: 10px;margin-bottom: 0px;">Your</br>Score</p>
+                <p id="userscorevalue" style="font-size: 50px;margin-top: 0px;font-family: Roboto;color:#252525;text-align: center;font-weight: 500;">0</p>
+            </div>
+        </div>
+        <div class="secondrowmain" style="display: flex;height: 52vh;">
+            <div class="game" style="margin-top:100px ;margin-left: 35.5vw;margin-right: 220px;">
+                <div class="gamerowfirst" value="" style="display: flex;">
+                    <div class="rockgame" onclick="playingGame('rock')" style="z-index:100 ;position: relative;width: 100px;height: 100px;background-color: white;border-radius: 50%;border: 10px solid #0074B6;">
+                    <img src="images/icons8-fist-67 1.png" style="margin-left: 8px;margin-top:15px ;"/>  
+                    </div>
+                    <div style="width: 180px;height: 15px;background-color: rgb(75, 75, 75);margin-top: 50px;"></div>
+                    <div class="scissorsgame" onclick="playingGame('scissor')" style="z-index:300 ;position: relative;width: 100px;height: 100px;background-color: white;border-radius: 50%;border:10px solid #BD00FF ;">
+                        <img src="images/17911 1.png" style="margin-left: 30px;margin-top:20px ;"/>
+                    </div>
+                </div>
+                <div style="z-index:1 ;position: relative;width: 220px;height: 15px;background-color: rgb(75, 75, 75);transform: rotate(55deg);"></div>
+                <div style="margin-left: 220px;z-index:1 ;position: relative;width: 180px;height: 15px;background-color: rgb(75, 75, 75);transform: rotate(125deg);"></div>
+                <div class="papergame" onclick="playingGame('paper')" style="margin-left: 150px;margin-top: 30px;z-index:200 ;position: relative;width: 100px;height: 100px;background-color: white;border-radius: 50%;border: 10px solid #FFA943;">
+                    <img src="images/icons8-hand-64 1.png" style="margin-left: 13px;margin-top:12px ;"/>
+                </div>
+            </div>
+            <div class="gamesecond" style="display:none;margin-left: 20vw;margin-top: 10vh;margin-right: 50px;">
+                <div class="pickedgame">
+                    <p style="display: inline-flex;margin-left: 58px;">YOU PICKED</p>
+                    <p style="display: inline-flex;margin-left: 570px;">PC PICKED</p>
+                </div>
+                <div class="gameresultinfo" style="display: flex;margin-top: 30px;">
+                    <div class="usergame">
+                        <div class="userrockgame" style="display: none;margin-left: 34px;width: 130px;height: 130px;background-color: white;border-radius: 50%;border: 10px solid #0074B6;">
+                            <img src="images/icons8-fist-67 1.png" style="margin-left: 25px;margin-top:30px ;"/>  
+                        </div>
+                        <div class="userscissorsgame" style="display: none;margin-left: 34px;width: 130px;height: 130px;background-color: white;border-radius: 50%;border:10px solid #BD00FF ;">
+                            <img src="images/17911 1.png" style="margin-left: 45px;margin-top:33px ;"/>
+                        </div>
+                        <div class="userpapergame" style="display: none;margin-left: 34px;width: 130px;height: 130px;background-color: white;border-radius: 50%;border: 10px solid #FFA943;">
+                            <img src="images/icons8-hand-64 1.png" style="margin-left: 28px;margin-top:28px ;"/>
+                        </div>
+                    </div>
+                    <div class="resultmiddlegame" style="margin-left: 190px;">
+                        <div class="userwongame" style="display: none;">
+                            <p style="font-size: 35px;margin-bottom: 5px;margin-top: 10px;">YOU WIN</p>
+                            <p style="font-size: 22px;margin-top: 0px;margin-bottom: 5px;">AGAINST PC</p>
+                            <p onclick="replayGame()" style="padding-top: 7px;font-size: 15px;border: 2px solid white;color: #6B6B6B;background-color: white;border-radius: 5px;height: 25px;text-align: center; ">PLAY AGAIN</p>
+                        </div>
+                        <div class="computerwongame" style="margin-left: -19px;display: none;">
+                            <p style="font-size: 35px;margin-bottom: 5px;margin-top: 10px;">YOU LOST</p>
+                            <p style="font-size: 22px;margin-top: 0px;margin-bottom: 5px;">AGAINST PC</p>
+                            <p onclick="replayGame()" style="padding-top: 7px;font-size: 15px;border: 2px solid white;color: #6B6B6B;background-color: white;border-radius: 5px;height: 25px;text-align: center; ">PLAY AGAIN</p>
+                        </div>
+                        <div class="tiegame" style="margin-left: 22px;display: none;">
+                            <p style="font-size: 40px;margin-bottom: 25px;margin-top: 30px;">TIE UP</p>
+                            <p onclick="replayGame()" style="padding-top: 7px;font-size: 15px;border: 2px solid white;color: #6B6B6B;background-color: white;border-radius: 5px;height: 25px;text-align: center; ">REPLAY</p>
+                        </div>
+                    </div>
+                    <div class="computergame" style="margin-left: 182px;">
+                        <div class="computerrockgame" style="display: none;width: 130px;height: 130px;background-color: white;border-radius: 50%;border: 10px solid #0074B6;">
+                            <img src="images/icons8-fist-67 1.png" style="margin-left: 25px;margin-top:30px ;"/>  
+                        </div>
+                        <div class="computerscissorsgame" style="display: none;width: 130px;height: 130px;background-color: white;border-radius: 50%;border:10px solid #BD00FF ;">
+                            <img src="images/17911 1.png" style="margin-left: 45px;margin-top:33px ;"/>
+                        </div>
+                        <div class="computerpapergame" style="display: none;width: 130px;height: 130px;background-color: white;border-radius: 50%;border: 10px solid #FFA943;">
+                            <img src="images/icons8-hand-64 1.png" style="margin-left: 28px;margin-top:28px ;"/>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="winnernext" style="display: none;margin-left: 33VW;margin-top: 15VH;margin-right: 190px;">
+                <img src="images/Group 5.png" style=""/>
+                <img src="images/Vector.png" style="margin-left: -350px;"/>
+                <p style="text-align: center;margin-left: 40px;font-family: Roboto;font-size: 105px;color: white;margin-top: 30px;margin-bottom: 0px;">HURRAY!!</p>
+                <p style="text-align: center;font-family: Roboto;color: white;font-size: 46px;margin-top: 0px;margin-bottom: 40px;margin-left: 40px;">YOU WON THE GAME</p>
+                <p class="winnerplayagain" style="width: 130px;padding-top: 8px;font-weight: 550;font-size: 13px;border: 2px solid white;color: #6B6B6B;background-color: white;border-radius: 5px;height: 22px;text-align: center;font-family: Roboto;margin-left: 190px;">PLAY AGAIN</p>
+            </div>
+            <div class="rulesmain" style="display: none;margin-bottom: 40px;position: relative;z-index: 1000;margin-top: 50px;">
+                <div class="cross" style="margin-top: 60px;margin-left: 265px;z-index: 1;position: fixed;height: 45px;width: 45px;background-color: #FF0000;border-radius: 50%;border: 5px solid white;">
+                    <p style="font-size: 32px;font-family: Roboto;font-weight: 500;color: white;margin-left: 12px;margin-top: 4px;">X</p>
+                </div>
+                <div class="rules" style="margin-top:90px ;z-index: 0;position: relative;border-radius: 10px;border: 6px solid white;height: 320px;width: 280px;background-color: #004429;">
+                <p style="height: 20px;color: white;text-align: center;font-family: Roboto;font-size: 28px;margin-top: 15px;">Game Rules</p>
+                <ul class="ruleslist">
+                    <li>
+                        Rock beats scissors, scissors beat paper, and paper beats rock.
+                    </li>
+                    </br>   
+                    <li>
+                        Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”
+                    </li>
+                    </br>  
+                    <li>
+                        Use rock, paper, scissors to settle minor decisions or simply play to pass the time
+                    </li>
+                    </br>  
+                    <li>
+                        If both players lay down the same hand, each player lays down another hand
+                    </li>
+                    </br>  
+                </ul>
+                </div>
+            </div>
+            
+        </div>
+        <div class="footer" style="display: flex;margin-top: 90px;float:right;color: white;font-family: Roboto;font-size: 20px;margin-right: 30px;">
+            <div class="rulesfooter" style="border: 2px solid white;border-radius: 10px;margin-right: 30px;width: 100px;height: 40px;">
+                <p style="margin-left: 20px;margin-top: 9px;">RULES</p>
+            </div>
+            <div class="nextfooter" style="display: none;border: 2px solid white;border-radius: 10px;width: 100px;height: 40px;">
+                <p style="margin-left: 25px;margin-top: 9px;">NEXT</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
